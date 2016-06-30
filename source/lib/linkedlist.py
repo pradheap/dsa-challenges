@@ -1,7 +1,6 @@
 from source.lib.node import Node
 
-# Linked List
-
+# Linked List class
 
 class LinkedList:
     def __init__(self):
@@ -65,11 +64,15 @@ class LinkedList:
 
         return is_found
 
-    def print(self):
+    def get_head(self):
+        return self.head
+
+    def print_data(self):
         current = self.head
         values = ["head"]
         while current is not None:
             values.append(current.get_data())
             current = current.get_next()
+        values.append('None')
 
-        print("->".join(map(str, values)), "->None")
+        print(" --> ".join(map(str, values)))
