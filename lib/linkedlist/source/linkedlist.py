@@ -1,4 +1,4 @@
-from source.lib.node import Node
+from lib.linkedlist.source.node import Node
 
 # Linked List class
 
@@ -6,7 +6,7 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
-    # TODO could improve
+    # TODO could improve?
     def add(self, value, pos=0):
         current = self.head
 

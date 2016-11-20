@@ -1,7 +1,7 @@
 import unittest
 
-from source.DataStructures.ds_linkedlist import *
-from source.lib.linkedlist import LinkedList
+from lib.linkedlist.source.linkedlist import LinkedList
+from problems.datastructures.linkedlist.ds_linkedlist import *
 
 
 class TestNode(unittest.TestCase):
