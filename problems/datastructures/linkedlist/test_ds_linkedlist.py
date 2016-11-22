@@ -4,6 +4,16 @@ from lib.linkedlist.source.linkedlist import LinkedList
 from problems.datastructures.linkedlist.ds_linkedlist import *
 
 
+def list_size(head):
+    current = head
+    size = 0
+    while current is not None:
+        size += 1
+        current = current.get_next()
+
+    return size
+
+
 class TestNode(unittest.TestCase):
 
     def test_get_node(self):
@@ -43,3 +53,14 @@ class TestNode(unittest.TestCase):
         remove_duplicates(linked_list.get_head())
         linked_list.print_data()
         self.assertEqual(linked_list.size(), 10)
+
+    def test_reverse_list(self):
+        linked_list = LinkedList()
+        values = [90, 50, 20]
+        for v in values:
+            linked_list.add(v)
+        linked_list.print_data()
+        self.assertEqual(linked_list.size(), 3)
+        reversed_list_head = reverse_list(linked_list.get_head())
+        self.assertEqual(list_size(reversed_list_head), 3)
+        self.assertEqual(reversed_list_head.get_data(), 90)

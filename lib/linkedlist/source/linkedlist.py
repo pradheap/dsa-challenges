@@ -1,6 +1,5 @@
 from lib.linkedlist.source.node import Node
 
-# Linked List class
 
 class LinkedList:
     def __init__(self):

@@ -112,3 +112,36 @@ def remove_duplicates(head):
             continue
         current = current.get_next()
     return head
+
+
+def reverse_list(head):
+    """
+    Reverse a linked list.
+
+    Sample Input:
+
+    1 -> 4 -> 3 -> NULL
+    NULL
+
+    Sample Output:
+
+    3 -> 4 -> 1 -> NULL
+    NULL
+
+    :param head: head of the linked list.
+    :return head of the linked list.
+    """
+    current = head
+    prev = None
+
+    while current is not None:
+        next_node = current.get_next()
+        current.set_next(prev)
+
+        # Iterate
+        prev = current
+        current = next_node
+
+    # At last, the next points to None and prev to last node.
+    head = prev
+    return head
