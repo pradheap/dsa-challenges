@@ -1,17 +1,20 @@
 """
-This file contains most of the problems from the linked list problems page.
-Pep8 standard naming convention is followed instead of hackerRank's camelcase.
-Also, the properties are accessed via getters and setters.
+This module contains soultions for most of the linked list problems found
+across the WWW ranging from sites such as hackerrank, geekforgeeks and other random sites.
+Pep8 standard naming convention is followed.
+The properties are accessed or mutated via getters and setters.
 """
 
 
 def get_node(head, position):
     """
     Return the data of the Nth Node from the end.
-    Takes O(N) extra space
+    Takes O(N) extra space.
+
     Input:
     1 -> 3 -> 5 -> 6 -> NULL, positionFromTail = 0
     1 -> 3 -> 5 -> 6 -> NULL, positionFromTail = 2
+
     Output:
     6
     3
@@ -28,15 +31,15 @@ def get_node(head, position):
     return values[-(position + 1)]
 
 
-
 def get_node_improved(head, position):
     """
     Return the data of the Nth Node from the end.
-    Takes O(1) extra space
+    Takes O(1) extra space.
 
     Input:
     1 -> 3 -> 5 -> 6 -> NULL, positionFromTail = 0
     1 -> 3 -> 5 -> 6 -> NULL, positionFromTail = 2
+
     Output:
     6
     3
@@ -58,27 +61,27 @@ def get_node_improved(head, position):
     return start_ptr.get_data()
 
 
-def compare_lists(headA, headB):
+def compare_lists(a_head, b_head):
     """
     Compare two linked lists.
 
-    :param headA: head of the first list
-    :param headB: head of the second list
+    :param a_head: head of the first list
+    :param b_head: head of the second list
     :return True if both lists are equal, otherwise false.
     """
-    currentA = headA
-    currentB = headB
+    a_current = a_head
+    b_current = b_head
     is_equal = True
 
-    while currentA is not None and currentB is not None:
-        if currentA.get_data() != currentB.get_data():
+    while a_current is not None and b_current is not None:
+        if a_current.get_data() != b_current.get_data():
             is_equal = False
 
-        currentA = currentA.get_next()
-        currentB = currentB.get_next()
+        a_current = a_current.get_next()
+        b_current = b_current.get_next()
 
     # At this point both pointers should be pointing to None
-    if currentA != currentB:
+    if a_current != b_current:
         is_equal = False
 
     return is_equal
@@ -147,7 +150,7 @@ def reverse_list(head):
     return head
 
 
-def merge_lists(headA, headB):
+def merge_lists(a_head, b_head):
     """
     Merge two linked lists that are sorted.
 
@@ -168,38 +171,39 @@ def merge_lists(headA, headB):
     11 -> 13 -> NULL
     2 -> 3 -> NULL
 
-    :param headA: head of the list A
-    :param headB: head of the list B
+    :param a_head: head of the list A
+    :param b_head: head of the list B
     :return: head of the combined list
 
     """
 
-    if headA is None:
-        return headB
-    elif headB is None:
-        return headA
+    if a_head is None:
+        return b_head
+    elif b_head is None:
+        return a_head
 
     # Choose the smaller data as the current pointer another as other pointer.
-    if headA.data < headB.data:
-        return_head = headA
-        other = headB
+    if a_head.get_data() < b_head.get_data():
+        return_head = a_head
+        other = b_head
     else:
-        return_head = headB
-        other = headA
+        return_head = b_head
+        other = a_head
 
     current = return_head
 
     while current is not None:
-        if current.data < other.data and current.next and current.next.data > other.data:
+        if current.get_data() < other.get_data() and current.get_next() and \
+                        current.get_next().get_data() > other.get_data():
             tmp = other
-            other = current.next
-            current.next = tmp
+            other = current.get_next()
+            current.set_next(tmp)
 
-        if current.next is None:
-            current.next = other
+        if current.get_next() is None:
+            current.set_next(other)
             break
 
-        current = current.next
+        current = current.get_next()
 
     return return_head
 
@@ -216,11 +220,61 @@ def has_cycle(head):
     slow_ptr = head
     fast_ptr = head
     is_cycle = 0
-    while fast_ptr and fast_ptr.next:
-        slow_ptr = slow_ptr.next
-        fast_ptr = fast_ptr.next.next
+    # Based on floyds cycle detection algorithm.
+    while fast_ptr and fast_ptr.get_next():
+        slow_ptr = slow_ptr.get_next()
+        # fast_ptr.get_next().get_next() could be None and the end of list.
+        fast_ptr = fast_ptr.get_next().get_next()
         if slow_ptr == fast_ptr:
             is_cycle = 1
             break
 
     return is_cycle
+
+
+def find_merge_node(a_head, b_head):
+    """
+    Given pointers to the head nodes of linked lists that merge together at some node,
+    find the Node where the two lists merge.
+
+    Input:
+    14-->28-->93
+                \\
+                43-->53-->None
+               /
+        10-->20
+
+    Output:
+    43
+
+
+    :param a_head: head of a linked list
+    :param b_head: head of another linked list
+    :return node where lists merge or None if lists don't merge together.
+    """
+    a_current = a_head
+    b_current = b_head
+    # To keep track of the iteration on the opposite lists.
+    iteration_count = 0
+
+    # A pointer traverses a list once and in the end, it starts traversing the opposite list.
+    # At some node, both pointer meets and that's the merge node.
+    while not a_current == b_current:
+        # If each of the opposite lists are traversed once, and one more tiem indicates
+        # that the the lists are separate and doesn't contain the merge node.
+        if iteration_count > 2:
+            return None
+
+        if a_current.get_next() is None:
+            iteration_count += 1
+            a_current = b_head
+        else:
+            a_current = a_current.get_next()
+
+        if b_current.get_next() is None:
+            iteration_count += 1
+            b_current = a_head
+        else:
+            b_current = b_current.get_next()
+
+    return a_current.get_data()
