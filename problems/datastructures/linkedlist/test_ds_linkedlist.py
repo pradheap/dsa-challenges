@@ -1,6 +1,7 @@
 import unittest
 
 from lib.linkedlist.source.linkedlist import LinkedList
+from lib.linkedlist.source.node import Node
 from problems.datastructures.linkedlist.ds_linkedlist import *
 
 
@@ -64,3 +65,33 @@ class TestNode(unittest.TestCase):
         reversed_list_head = reverse_list(linked_list.get_head())
         self.assertEqual(list_size(reversed_list_head), 3)
         self.assertEqual(reversed_list_head.get_data(), 90)
+
+    def test_merge_lists(self):
+        linked_list = LinkedList()
+        linked_list1 = LinkedList()
+        self.assertTrue(linked_list.is_empty())
+        self.assertTrue(linked_list1.is_empty())
+        values = [100, 80, 60, 20, 10]
+        values1 = [90, 85, 65, 35, 15]
+        for v in values:
+            linked_list.add(v)
+        for v in values1:
+            linked_list1.add(v)
+        linked_list.print_data()
+        linked_list1.print_data()
+        merged_list = merge_lists(linked_list.get_head(), linked_list1.get_head())
+        self.assertEqual(list_size(merged_list), 10)
+
+    def test_has_cycle(self):
+        linked_list = LinkedList()
+        linked_list1 = LinkedList()
+        values = [20, 50, 60, 80, 90]
+        values1 = [20, 50, 60, 34, 43, 45, 54, 65, 67]
+        for v in values:
+            linked_list.add(v)
+        linked_list.print_data()
+        for v in values1:
+            linked_list1.add(v)
+        linked_list1.cycle_list()
+        self.assertEqual(has_cycle(linked_list.get_head()), 0)
+        self.assertEqual(has_cycle(linked_list1.get_head()), 1)

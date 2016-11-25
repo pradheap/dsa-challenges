@@ -145,3 +145,82 @@ def reverse_list(head):
     # At last, the next points to None and prev to last node.
     head = prev
     return head
+
+
+def merge_lists(headA, headB):
+    """
+    Merge two linked lists that are sorted.
+
+    Sample Input:
+
+    3 -> 4 -> 6 -> 8 -> NULL
+    2 -> 5 -> 7 -> NULL
+
+    13 -> NULL
+    11 -> NULL
+
+    NULL
+    2-> 3 -> NULL
+
+    Sample Output:
+
+    2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> NULL
+    11 -> 13 -> NULL
+    2 -> 3 -> NULL
+
+    :param headA: head of the list A
+    :param headB: head of the list B
+    :return: head of the combined list
+
+    """
+
+    if headA is None:
+        return headB
+    elif headB is None:
+        return headA
+
+    # Choose the smaller data as the current pointer another as other pointer.
+    if headA.data < headB.data:
+        return_head = headA
+        other = headB
+    else:
+        return_head = headB
+        other = headA
+
+    current = return_head
+
+    while current is not None:
+        if current.data < other.data and current.next and current.next.data > other.data:
+            tmp = other
+            other = current.next
+            current.next = tmp
+
+        if current.next is None:
+            current.next = other
+            break
+
+        current = current.next
+
+    return return_head
+
+
+def has_cycle(head):
+    """
+    Cycle detection in a linked list.
+    0 - if there was no cycle.
+    1 - if there was a cycle.
+
+    :param head: head of a linked list
+    :return return whether a cycle was detected.
+    """
+    slow_ptr = head
+    fast_ptr = head
+    is_cycle = 0
+    while fast_ptr and fast_ptr.next:
+        slow_ptr = slow_ptr.next
+        fast_ptr = fast_ptr.next.next
+        if slow_ptr == fast_ptr:
+            is_cycle = 1
+            break
+
+    return is_cycle

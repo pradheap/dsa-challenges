@@ -66,6 +66,13 @@ class LinkedList:
     def get_head(self):
         return self.head
 
+    def cycle_list(self):
+        current = self.head
+        next_elem = current.get_next()
+        while current.get_next() is not None:
+            current = current.get_next()
+        current.set_next(next_elem)
+
     def print_data(self):
         current = self.head
         values = ["head"]
