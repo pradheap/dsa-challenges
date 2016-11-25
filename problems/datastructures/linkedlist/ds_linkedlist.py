@@ -1,5 +1,5 @@
 """
-This module contains soultions for most of the linked list problems found
+This module contains solutions for most of the linked list problems found
 across the WWW ranging from sites such as hackerrank, geekforgeeks and other random sites.
 Pep8 standard naming convention is followed.
 The properties are accessed or mutated via getters and setters.
@@ -100,7 +100,6 @@ def remove_duplicates(head):
 
     1 -> 3 -> 5 -> 6 -> NULL
     NULL
-
 
     :param head: head of the linked list.
     :return head of the linked list.
@@ -246,7 +245,6 @@ def find_merge_node(a_head, b_head):
 
     Output:
     43
-
 
     :param a_head: head of a linked list
     :param b_head: head of another linked list
