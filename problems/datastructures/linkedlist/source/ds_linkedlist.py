@@ -255,7 +255,7 @@ def find_merge_node(a_head, b_head):
     # To keep track of the iteration on the opposite lists.
     iteration_count = 0
 
-    # A pointer traverses a list once and in the end, it starts traversing the opposite list.
+    # Each pointer traverses a list once and in the end, it starts traversing the opposite list.
     # At some node, both pointer meets and that's the merge node.
     while not a_current == b_current:
         # If each of the opposite lists are traversed once, and one more tiem indicates

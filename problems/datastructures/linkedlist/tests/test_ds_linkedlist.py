@@ -2,7 +2,7 @@ import unittest
 
 from lib.linkedlist.source.linkedlist import LinkedList
 from lib.linkedlist.source.node import Node
-from problems.datastructures.linkedlist.ds_linkedlist import *
+from problems.datastructures.linkedlist.source.ds_linkedlist import *
 
 
 def list_size(head):
@@ -15,7 +15,7 @@ def list_size(head):
     return size
 
 
-class TestNode(unittest.TestCase):
+class TestLinkedList(unittest.TestCase):
 
     def test_get_node(self):
         linked_list = LinkedList()
