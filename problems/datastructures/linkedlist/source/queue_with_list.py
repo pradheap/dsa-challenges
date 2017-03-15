@@ -60,6 +60,8 @@ class LinkedList:
         if self.head:
             top_elem = self.head
             self.head = self.head.get_next()
+            if self.head is None:
+                self.tail = None
             return top_elem.get_data()
         else:
             return None
