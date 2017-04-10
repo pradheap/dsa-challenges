@@ -1,6 +1,6 @@
 import unittest
 
-from problems.datastructures.linkedlist.source.queue_with_list import *
+from challenges.datastructures.linkedlist.source.queue_with_list import *
 
 
 class TestStack(unittest.TestCase):

@@ -2,7 +2,7 @@ import unittest
 
 from lib.linkedlist.source.linkedlist import LinkedList
 from lib.linkedlist.source.node import Node
-from problems.datastructures.linkedlist.source.problems import *
+from challenges.datastructures.linkedlist.source.problems import *
 
 
 def list_size(head):

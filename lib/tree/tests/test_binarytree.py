@@ -1,11 +1,11 @@
 import unittest
 
-from lib.tree.source.binarytree import BinaryTree
+from lib.tree.source.binarytreenode import BinaryTreeNode
 
 
 class TestNode(unittest.TestCase):
     def test_tree(self):
-        btree = BinaryTree('Sentence')
+        btree = BinaryTreeNode('Sentence')
         btree.insert_left('Noun')
         btree.insert_right('Verb')
         btree.get_left_child().insert_right('Adjective')
