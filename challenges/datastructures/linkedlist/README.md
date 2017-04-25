@@ -63,6 +63,15 @@ FUNCTIONS
         :param position: position starting from tail
         :return: the data at the specific position or None
 
+    get_nth_node_from_end(head, n)
+        Return the data of the Nth Node from the end.
+        Takes O(1) extra space.
+        Another method in a single loop.
+
+        :param head:
+        :param n: position of the node from end.
+        :return: the data at the nth node or None
+
     has_cycle(head)
         Cycle detection in a linked list.
         0 - if there was no cycle.
@@ -70,6 +79,24 @@ FUNCTIONS
 
         :param head: head of a linked list
         :return return whether a cycle was detected.
+
+    is_palindrome(head)
+        Given a list, check whether it's a palindrome.
+
+        Input
+        1->2->3->4->5->NULL
+
+        Output:
+        False
+
+        Input
+        1->2->3->2->1->NULL
+
+        Output:
+        True
+
+        :param head: head of a linked list
+        :return: a boolean indicating whether the LL is a palindrome.
 
     merge_lists(a_head, b_head)
         Merge two linked lists that are sorted.
@@ -108,7 +135,6 @@ FUNCTIONS
         1 -> 3 -> 5 -> 6 -> NULL
         NULL
 
-
         :param head: head of the linked list.
         :return head of the linked list.
 
@@ -127,3 +153,48 @@ FUNCTIONS
 
         :param head: head of the linked list.
         :return head of the linked list.
+
+    rotate_left(head, k)
+        Given a list, rotate the list to the left by k places, where k is non-negative.
+
+        Input
+        1->2->3->4->5->NULL and k = 2,
+
+        Output:
+        3->4->5->1->2->NULL.
+
+        :param head: head of a linked list
+        :param k: a non-negative integer specifying the number of rotations.
+        :return head note of the rotated list.
+
+    rotate_right(head, k)
+        Given a list, rotate the list to the right by k places, where k is non-negative.
+
+        Input
+        1->2->3->4->5->NULL and k = 2,
+
+        Output:
+        4->5->1->2->3->NULL.
+
+        :param head: head of a linked list
+        :param k: a non-negative integer specifying the number of rotations.
+        :return head note of the rotated list.
+
+    sum_2_numbers(head_a, head_b)
+        Given two non-empty linked lists representing two non-negative integers.
+        The digits are stored in reverse order and each of their nodes contain a single digit.
+        Add the two numbers and return it as a linked list.
+
+        Input:
+        (2 -> 4 -> 3) + (5 -> 6 -> 4)
+        Output:
+        7 -> 0 -> 8
+
+        Input:
+        (8 -> 9) + (2 -> 3)
+        Output:
+        0 -> 3 -> 1
+
+        :param head_a: the first number
+        :param head_b: the second number
+        :return: the head of the total.

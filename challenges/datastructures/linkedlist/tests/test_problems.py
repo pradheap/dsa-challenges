@@ -131,3 +131,169 @@ class TestLinkedList(unittest.TestCase):
             linked_list2.add(v)
 
         self.assertEqual(find_merge_node(linked_list1.get_head(), linked_list2.get_head()), None)
+
+    def test_rotate_right(self):
+        linked_list = LinkedList()
+        values = [30, 20, 10]
+        for v in values:
+            linked_list.add(v)
+        self.assertEqual(linked_list.size(), 3)
+        rotated_list_head = rotate_right(linked_list.get_head(), 2)
+        self.assertEqual(list_size(rotated_list_head), 3)
+        self.assertEqual(rotated_list_head.get_data(), 20)
+
+        linked_list = LinkedList()
+        values = [5, 4, 3, 2, 1]
+        for v in values:
+            linked_list.add(v)
+        rotated_list_head = rotate_right(linked_list.get_head(), 2)
+        self.assertEqual(list_size(rotated_list_head), 5)
+        self.assertEqual(rotated_list_head.get_data(), 4)
+
+        linked_list = LinkedList()
+        values = [5, 4, 3, 2, 1]
+        for v in values:
+            linked_list.add(v)
+        rotated_list_head = rotate_right(linked_list.get_head(), 5)
+        self.assertEqual(list_size(rotated_list_head), 5)
+        self.assertEqual(rotated_list_head.get_data(), 1)
+
+        linked_list = LinkedList()
+        values = [5, 4, 3, 2, 1]
+        for v in values:
+            linked_list.add(v)
+        rotated_list_head = rotate_right(linked_list.get_head(), 7)
+        self.assertEqual(list_size(rotated_list_head), 5)
+        self.assertEqual(rotated_list_head.get_data(), 4)
+
+    def test_rotate_left(self):
+        linked_list = LinkedList()
+        values = [30, 20, 10]
+        for v in values:
+            linked_list.add(v)
+        self.assertEqual(linked_list.size(), 3)
+        rotated_list_head = rotate_left(linked_list.get_head(), 2)
+        self.assertEqual(list_size(rotated_list_head), 3)
+        self.assertEqual(rotated_list_head.get_data(), 30)
+
+        linked_list = LinkedList()
+        values = [5, 4, 3, 2, 1]
+        for v in values:
+            linked_list.add(v)
+        rotated_list_head = rotate_left(linked_list.get_head(), 1)
+        self.assertEqual(list_size(rotated_list_head), 5)
+        self.assertEqual(rotated_list_head.get_data(), 2)
+
+        linked_list = LinkedList()
+        values = [5, 4, 3, 2, 1]
+        for v in values:
+            linked_list.add(v)
+        rotated_list_head = rotate_left(linked_list.get_head(), 5)
+        self.assertEqual(list_size(rotated_list_head), 5)
+        self.assertEqual(rotated_list_head.get_data(), 1)
+
+        linked_list = LinkedList()
+        values = [5, 4, 3, 2, 1]
+        for v in values:
+            linked_list.add(v)
+        rotated_list_head = rotate_left(linked_list.get_head(), 8)
+        self.assertEqual(list_size(rotated_list_head), 5)
+        self.assertEqual(rotated_list_head.get_data(), 4)
+
+    def test_is_palindrome(self):
+        linked_list = LinkedList()
+        values = [30, 20, 10]
+        for v in values:
+            linked_list.add(v)
+        self.assertEqual(linked_list.size(), 3)
+        self.assertFalse(is_palindrome(linked_list.get_head()))
+
+        linked_list = LinkedList()
+        values = [10, 20, 10]
+        for v in values:
+            linked_list.add(v)
+        self.assertEqual(linked_list.size(), 3)
+        self.assertTrue(is_palindrome(linked_list.get_head()))
+
+        linked_list = LinkedList()
+        values = [10, 20, 20, 10]
+        for v in values:
+            linked_list.add(v)
+        self.assertEqual(linked_list.size(), 4)
+        self.assertTrue(is_palindrome(linked_list.get_head()))
+
+        linked_list = LinkedList()
+        values = ['a', 'bb', 'bb', 'a']
+        for v in values:
+            linked_list.add(v)
+        self.assertEqual(linked_list.size(), 4)
+        self.assertTrue(is_palindrome(linked_list.get_head()))
+
+        linked_list = LinkedList()
+        values = ['a', 'bbc', 'cdc', 'bb', 'a']
+        for v in values:
+            linked_list.add(v)
+        self.assertEqual(linked_list.size(), 5)
+        self.assertFalse(is_palindrome(linked_list.get_head()))
+
+    def test_get_nth_node_from_end(self):
+        linked_list = LinkedList()
+        values = [50, 45, 40, 30, 20, 10, 5]
+        for v in values:
+            linked_list.add(v)
+
+        # head --> 5 --> 10 --> 20 --> 30 --> 40 --> 45 --> 50 --> None
+        self.assertEqual(linked_list.size(), 7)
+        self.assertEqual(get_nth_node_from_end(linked_list.get_head(), 2), 45)
+        self.assertEqual(get_nth_node_from_end(linked_list.get_head(), 5), 20)
+        self.assertEqual(get_nth_node_from_end(linked_list.get_head(), 15), None)
+
+    def test_sum_2_numbers(self):
+        linked_list = LinkedList()
+        # In reverse actually it's 342.
+        values = [2, 4, 3]
+        for v in values:
+            linked_list.add(v, linked_list.size())
+        linked_list.print_data()
+
+        linked_list1 = LinkedList()
+        # In reverse actually it's 465.
+        values1 = [5, 6, 4]
+        for v in values1:
+            linked_list1.add(v, linked_list1.size())
+        linked_list1.print_data()
+
+        new_ll = sum_2_numbers(linked_list.get_head(), linked_list1.get_head())
+        curr = new_ll
+        # in reverse
+        ans = 708
+        place = 100
+        while curr is not None:
+            self.assertEqual(curr.get_data(), ans/place)
+            ans %= place
+            place /= 10
+            curr = curr.get_next()
+
+        linked_list = LinkedList()
+        # Inserting 9,3,4,2 becomes 2->4->3->9 as we insert into the head.
+        # It's not in reverse if we insert at head
+        values = [9, 3, 4, 2]
+        for v in values:
+            linked_list.add(v)
+        linked_list.print_data()
+
+        linked_list1 = LinkedList()
+        values1 = [9, 6, 5]
+        for v in values1:
+            linked_list1.add(v)
+        linked_list1.print_data()
+
+        new_ll = sum_2_numbers(linked_list.get_head(), linked_list1.get_head())
+        curr = new_ll
+        ans = 70301
+        place = 10000
+        while curr is not None:
+            self.assertEqual(curr.get_data(), ans / place)
+            ans %= place
+            place /= 10
+            curr = curr.get_next()
