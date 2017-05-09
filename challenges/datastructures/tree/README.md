@@ -6,6 +6,7 @@ Pep8 standard naming convention is followed.
 The properties are accessed or mutated via getters and setters.
 
 FUNCTIONS
+
     all_paths(root)
         Return all the paths of a binary tree from root node to leaf nodes.
         
