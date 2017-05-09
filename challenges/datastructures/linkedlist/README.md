@@ -1,6 +1,6 @@
 ## ds_linkedlist
 
-This module contains soultions for most of the linked list problems found
+This module contains solutions for most of the linked list problems found
 across the WWW ranging from sites such as hackerrank, geekforgeeks and other random sites.
 Pep8 standard naming convention is followed.
 The properties are accessed or mutated via getters and setters.

@@ -25,9 +25,6 @@ class BSTNode:
     def has_children(self):
         return self.has_left_child() or self.has_right_child()
 
-    def get_right_child(self):
-        return self.right_child
-
     def set_value(self, data):
         self.value = data
 

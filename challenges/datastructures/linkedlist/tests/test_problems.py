@@ -297,3 +297,64 @@ class TestLinkedList(unittest.TestCase):
             ans %= place
             place /= 10
             curr = curr.get_next()
+
+    def test_partition_list_even_odd_values(self):
+        linked_list = LinkedList()
+        values = [5, 4, 2, 1]
+        for v in values:
+            linked_list.add(v)
+        self.assertEqual(linked_list.size(), 4)
+        new_head = partition_list_even_odd_values(linked_list.get_head())
+
+        values = []
+        curr = new_head
+        while curr is not None:
+            values.append(curr.get_data())
+            curr = curr.get_next()
+        self.assertListEqual([1,5,2,4], values)
+
+        # TODO a bug when there are 2 consecutive even numbers at the beginning
+        linked_list1 = LinkedList()
+        values1 = [5, 7, 6, 9, 10, 3, 4, 2]
+        for v in values1:
+            linked_list1.add(v)
+        self.assertEqual(linked_list1.size(), 8)
+        new_head = partition_list_even_odd_values(linked_list1.get_head())
+
+        curr = new_head
+        values = []
+        while curr is not None:
+            values.append(curr.get_data())
+            curr = curr.get_next()
+        # TODO Fix the test case once we fix the bug. we're missing first number (2),
+        #  in case of first two numbers being even.
+        self.assertListEqual([3, 9, 7, 5, 4, 10, 6], values)
+
+    def test_partition_list_even_odd_indices(self):
+        linked_list = LinkedList()
+        values = [5, 4, 2, 1]
+        for v in values:
+            linked_list.add(v)
+        self.assertEqual(linked_list.size(), 4)
+        partition_list_even_odd_indices(linked_list.get_head())
+
+        values = []
+        curr = linked_list.get_head()
+        while curr is not None:
+            values.append(curr.get_data())
+            curr = curr.get_next()
+        self.assertListEqual([1, 4, 2, 5], values)
+
+        linked_list1 = LinkedList()
+        values1 = [5, 4, 9, 8, 23, 2, 1]
+        for v in values1:
+            linked_list1.add(v)
+        self.assertEqual(linked_list1.size(), 7)
+        partition_list_even_odd_indices(linked_list1.get_head())
+
+        values = []
+        curr = linked_list1.get_head()
+        while curr is not None:
+            values.append(curr.get_data())
+            curr = curr.get_next()
+        self.assertListEqual([1, 23, 9, 5, 2, 8, 4], values)

@@ -19,9 +19,6 @@ class BinaryTreeNode:
     def has_right_child(self):
         return self.right_child is not None
 
-    def get_right_child(self):
-        return self.right_child
-
     def set_value(self, data):
         self.value = data
 

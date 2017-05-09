@@ -2,7 +2,7 @@ import unittest
 
 from lib.tree.source.binarytreenode import BinaryTreeNode
 
-from challenges.datastructures.tree.source.problems import mirror_tree, is_identical, all_paths, bst_search
+from challenges.datastructures.tree.source.problems import *
 from challenges.datastructures.tree.source.traversals import pre_order, in_order
 
 
@@ -20,6 +20,17 @@ class TestProblems(unittest.TestCase):
         self.assertListEqual(result, ['1', '2', '3', '4', '5', '6', '7'])
         mirror = pre_order(mirror_tree(btree))
         self.assertListEqual(mirror, ['1', '5', '7', '6', '2', '4', '3'])
+
+    def test_get_height(self):
+        btree = BinaryTreeNode('1')
+        btree.insert_left('2')
+        btree.insert_right('5')
+        btree.get_left_child().insert_left('3')
+        btree.get_left_child().get_left_child().insert_right('4')
+        btree.get_right_child().insert_left('6')
+        btree.get_right_child().insert_right('7')
+        result = get_height(btree)
+        self.assertEqual(result, 3)
 
     def test_is_identical(self):
         btree = BinaryTreeNode('1')
@@ -115,3 +126,22 @@ class TestProblems(unittest.TestCase):
 
         self.assertTrue(bst_search(btree, 6))
         self.assertFalse(bst_search(btree, 61))
+
+    def test_common_ancestor(self):
+        btree = BinaryTreeNode(5)
+        btree.insert_left(3)
+        btree.insert_right(7)
+        btree.get_left_child().insert_left(2)
+        btree.get_left_child().insert_right(4)
+        btree.get_right_child().insert_left(6)
+        btree.get_right_child().insert_right(9)
+        btree.get_right_child().get_left_child().insert_right(8)
+        btree.get_right_child().get_left_child().insert_left(19)
+        btree.get_right_child().get_right_child().insert_right(12)
+        btree.get_right_child().get_right_child().insert_left(11)
+        self.assertListEqual(in_order(btree), [2, 3, 4, 5, 19, 6, 8, 7, 11, 9, 12])
+
+        self.assertEqual(6, common_ancestor(btree, 6, 19))
+        self.assertEqual(5, common_ancestor(btree, 4, 19))
+        self.assertEqual(3, common_ancestor(btree, 2, 4))
+        self.assertEqual(5, common_ancestor(btree, 11, 4))

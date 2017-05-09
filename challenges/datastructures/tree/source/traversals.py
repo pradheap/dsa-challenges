@@ -37,15 +37,6 @@ def in_order(root):
     return result
 
 
-def get_height(root):
-    if root is None:
-        return -1
-
-    left_height = get_height(root.get_left_child())
-    right_height = get_height(root.get_right_child())
-    return 1 + max(left_height, right_height)
-
-
 def level_order(root):
     q = Queue()
     result = []
@@ -61,6 +52,54 @@ def level_order(root):
         if root.get_right_child() is not None:
             q.enqueue(root.get_right_child())
 
+    return result
+
+
+def reverse_level_order(root):
+    q = Queue()
+    s = []
+    result = []
+    if root is None:
+        return result
+
+    q.enqueue(root)
+    while q.size() > 0:
+        node = q.dequeue()
+        if node.has_right_child():
+            q.enqueue(node.get_right_child())
+        if node.has_left_child():
+            q.enqueue(node.get_left_child())
+        s.append(node.get_value())
+
+    while len(s) > 0:
+        result.append(s.pop())
+
+    return result
+
+
+def zig_zag_level_order(root):
+    s1 = []
+    s2 = []
+    result = []
+
+    if root is None:
+        return result
+    s1.append(root)
+    while len(s1) or len(s2) > 0:
+        while len(s2) > 0:
+            curr = s2.pop()
+            if curr.has_right_child():
+                s1.append(curr.get_right_child())
+            if curr.has_left_child():
+                s1.append(curr.get_left_child())
+            result.append(curr.get_value())
+        while len(s1) > 0:
+            curr = s1.pop()
+            if curr.has_left_child():
+                s2.append(curr.get_left_child())
+            if curr.has_right_child():
+                s2.append(curr.get_right_child())
+            result.append(curr.get_value())
     return result
 
 
@@ -119,5 +158,24 @@ def iterative_post_order(root):
                     result.append(tmp.get_value())
             else:
                 current = tmp
+
+    return result
+
+
+def iterative_post_order_two_stacks(root):
+    s1 = []
+    s2 = []
+    result = []
+    s1.append(root)
+    while len(s1) > 0:
+        curr = s1.pop()
+        s2.append(curr.get_value())
+        if curr.has_left_child():
+            s1.append(curr.get_left_child())
+        if curr.has_right_child():
+            s1.append(curr.get_right_child())
+
+    while len(s2) > 0:
+        result.append(s2.pop())
 
     return result

@@ -474,3 +474,42 @@ def sum_2_numbers(head_a, head_b):
     new_ll.print_data()
 
     return new_ll.get_head()
+
+
+def partition_list_even_odd_values(head):
+    curr = head
+    odd_end_ptr = None
+    new_head = None
+    prev = None
+    i = 0
+    while curr is not None:
+        if curr.get_data() % 2 != 0:
+            if prev:
+                prev.set_next(curr.get_next())
+            if curr != odd_end_ptr and odd_end_ptr:
+                curr.set_next(odd_end_ptr.get_next())
+                odd_end_ptr.set_next(curr)
+            if odd_end_ptr is None and i > 0:
+                new_head = curr
+                curr.set_next(prev)
+            odd_end_ptr = curr
+        prev = curr
+        curr = curr.get_next()
+        i += 1
+
+    return new_head or head
+
+
+def partition_list_even_odd_indices(head):
+    last_even = head.get_next()
+    first_even = last_even
+    last_odd = head
+
+    while last_odd.get_next() and last_even.get_next():
+        last_odd.set_next(last_even.get_next())
+        last_odd = last_odd.get_next()
+        last_even.set_next(last_odd.get_next())
+        last_even = last_even.get_next()
+    last_odd.set_next(first_even)
+    return head
+

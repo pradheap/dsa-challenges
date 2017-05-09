@@ -31,7 +31,6 @@ class BinaryHeap:
         self.currSize += 1
         self._perc_up(self.currSize)
 
-
     def delete_min(self):
         ret_value = self.elements[1]
         self.elements[1] = self.elements[self.currSize]
