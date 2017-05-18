@@ -147,6 +147,27 @@ def common_ancestor(root, value1, value2):
     return left_parent or right_parent
 
 
+def is_height_balanced(root):
+    """
+    Given a tree, find whether it's height balanced.
+    Height balanced is when the difference between left and right subtree's height is not more than 1.
+
+    :param root: a root of a binary tree,
+    :return: a boolean to indicate the balanced-ness.
+    """
+    if root is None:
+        return True
+
+    left_height = get_height(root.get_left_child())
+    right_height = get_height(root.get_right_child())
+
+    if abs(left_height - right_height) <= 1 and is_height_balanced(root.get_left_child()) and \
+            is_height_balanced(root.get_right_child()):
+        return True
+
+    return False
+
+
 # BST Problems:
 
 def bst_search(root, value):
