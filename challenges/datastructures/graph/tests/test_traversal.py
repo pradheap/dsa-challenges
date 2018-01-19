@@ -1,6 +1,6 @@
 import unittest
 
-from lib.graph.source.graph import WeightedGraph, UnweightedGraph
+from lib.source.graph import WeightedGraph, UnweightedGraph
 from challenges.datastructures.graph.source.traversal import *
 
 class TestTraversal(unittest.TestCase): 

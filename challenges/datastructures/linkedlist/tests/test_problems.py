@@ -1,7 +1,6 @@
 import unittest
 
-from lib.linkedlist.source.linkedlist import LinkedList
-from lib.linkedlist.source.node import Node
+from lib.source.linkedlist import LinkedList, Node
 from challenges.datastructures.linkedlist.source.problems import *
 
 

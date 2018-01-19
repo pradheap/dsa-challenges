@@ -1,4 +1,4 @@
-from lib.linkedlist.source.linkedlist import LinkedList
+from lib.source.linkedlist import LinkedList
 
 """
 This module contains solutions for most of the linked list problems found

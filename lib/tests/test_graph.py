@@ -1,6 +1,6 @@
 import unittest
 
-from lib.graph.source.graph import *
+from lib.source.graph import *
 
 class TestGraph(unittest.TestCase):
     def test_vertex(self):

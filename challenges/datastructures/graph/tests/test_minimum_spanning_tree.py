@@ -1,6 +1,6 @@
 import unittest
 
-from lib.graph.source.graph import WeightedGraph
+from lib.source.graph import WeightedGraph
 from challenges.datastructures.graph.source.minimum_spanning_tree import *
 
 class TestMinimumSpanningTree(unittest.TestCase):
