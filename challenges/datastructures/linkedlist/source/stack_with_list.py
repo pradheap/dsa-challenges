@@ -3,7 +3,7 @@ This module contains an implementation of stack data structure
 with singly linked list.
 """
 
-from lib.linkedlist.source.node import Node
+from lib.source.linkedlist import Node
 
 
 class LinkedList:
