@@ -1,6 +1,6 @@
 import unittest
 
-from lib.tree.source.binaryheap import BinaryHeap
+from lib.source.binaryheap import BinaryHeap
 
 
 class TestBinaryHeap(unittest.TestCase):

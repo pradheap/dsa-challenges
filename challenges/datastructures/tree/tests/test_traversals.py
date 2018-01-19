@@ -1,6 +1,6 @@
 import unittest
 
-from lib.tree.source.binarytreenode import BinaryTreeNode
+from lib.source.binarytreenode import BinaryTreeNode
 from challenges.datastructures.tree.source.traversals import *
 
 

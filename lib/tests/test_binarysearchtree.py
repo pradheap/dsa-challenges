@@ -1,6 +1,6 @@
 import unittest
 
-from lib.tree.source.binarysearchtree import BinarySearchTree
+from lib.source.binarysearchtree import BinarySearchTree
 from challenges.datastructures.tree.source.traversals import in_order
 
 
