@@ -269,7 +269,7 @@ class TestLinkedList(unittest.TestCase):
         ans = 708
         place = 100
         while curr is not None:
-            self.assertEqual(curr.get_data(), ans/place)
+            self.assertEqual(curr.get_data(), ans // place)
             ans %= place
             place /= 10
             curr = curr.get_next()
@@ -293,7 +293,7 @@ class TestLinkedList(unittest.TestCase):
         ans = 70301
         place = 10000
         while curr is not None:
-            self.assertEqual(curr.get_data(), ans / place)
+            self.assertEqual(curr.get_data(), ans // place)
             ans %= place
             place /= 10
             curr = curr.get_next()

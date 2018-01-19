@@ -85,19 +85,21 @@ def convert_decimal_to_any_base(num, base):
     stack = Stack()
     while num > 0:
         stack.push(num % base)
-        num /= base
+        num //= base
 
     bin_num = ''
     if stack.is_empty():
         bin_num = '0'
     while not stack.is_empty():
-        bin_num += str(digits[stack.pop()])
+        bin_num += str(digits[int(stack.pop())])
     prefix = ''
     if base == 2:
         prefix = '0b'
     elif base == 16:
         prefix = '0x'
-    if base == 8 and bin_num != '0':
+    elif base == 8:
+        prefix = '0o'
+    elif bin_num != '0':
         prefix = '0'
 
     return prefix + bin_num

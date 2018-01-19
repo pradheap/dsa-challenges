@@ -61,7 +61,7 @@ def vertical_traversal(arr):
     cols = len(arr[0])
     for j in range(cols):
         for i in range(rows):
-            print arr[i][j]
+            print(arr[i][j])
 
 
 def reverse_vertical_traversal(arr):
@@ -69,7 +69,7 @@ def reverse_vertical_traversal(arr):
     cols = len(arr[0])
     for j in range(cols - 1, -1, -1):
         for i in range(rows - 1, -1, -1):
-            print arr[i][j]
+            print(arr[i][j])
 
 
 def diagonal_traversal(arr):
@@ -83,7 +83,7 @@ def diagonal_traversal(arr):
         for x in range(row_min, row_max):
             y = i - x
             if 0 <= y < cols:
-                print arr[x][y]
+                print(arr[x][y])
 
 
 
