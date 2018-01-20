@@ -1,7 +1,7 @@
 import unittest
 
 from lib.source.binarytreenode import BinaryTreeNode
-from challenges.datastructures.tree.source.traversals import *
+from challenges.tree.source.traversals import *
 
 
 class TestNode(unittest.TestCase):

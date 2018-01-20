@@ -2,8 +2,8 @@ import unittest
 
 from lib.source.binarytreenode import BinaryTreeNode
 
-from challenges.datastructures.tree.source.problems import *
-from challenges.datastructures.tree.source.traversals import pre_order, in_order
+from challenges.tree.source.problems import *
+from challenges.tree.source.traversals import pre_order, in_order
 
 
 class TestProblems(unittest.TestCase):

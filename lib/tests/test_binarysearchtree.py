@@ -1,7 +1,7 @@
 import unittest
 
 from lib.source.binarysearchtree import BinarySearchTree
-from challenges.datastructures.tree.source.traversals import in_order
+from challenges.tree.source.traversals import in_order
 
 
 class TestBST(unittest.TestCase):

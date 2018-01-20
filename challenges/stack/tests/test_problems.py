@@ -1,6 +1,6 @@
 import unittest
 
-from challenges.datastructures.stack.source.problems import *
+from challenges.stack.source.problems import *
 
 
 class TestStackProblems(unittest.TestCase):

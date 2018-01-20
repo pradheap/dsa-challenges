@@ -1,4 +1,4 @@
-from challenges.datastructures.linkedlist.source.queue_with_list import Queue
+from challenges.linkedlist.source.queue_with_list import Queue
 
 
 def pre_order(root):

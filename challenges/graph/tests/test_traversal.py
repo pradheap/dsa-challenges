@@ -1,7 +1,7 @@
 import unittest
 
 from lib.source.graph import WeightedGraph, UnweightedGraph
-from challenges.datastructures.graph.source.traversal import *
+from challenges.graph.source.traversal import *
 
 class TestTraversal(unittest.TestCase): 
     def test_recursive_dfs(self):
