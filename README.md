@@ -1,18 +1,31 @@
-# dsa-challenges
-Data Structures and Algorithms challenges
+# DSA Challenges
 
-#### Problems:
+[![Build Status](https://travis-ci.org/pradheap/dsa-challenges.svg?branch=master)](https://travis-ci.org/pradheap/dsa-challenges)
 
-1. [Linked Lists](challenges/datastructures/linkedlist/)
+Data Structures and Algorithms challenges from around the internet.
 
-1. [Stack](challenges/datastructures/stack/)
-
-1. [Tree/BST](challenges/datastructures/tree/)
-
-#### Test:
+### To Test:
 
 nosetests
 
-#### Setup:
+### To Setup:
 
 pip install -r requirements.txt
+
+### Topics:
+
+1. [Array](challenges/array/)
+
+1. [Graph](challenges/graph/)
+
+1. [Linked Lists](challenges/linkedlist/)
+
+1. [Recursion](challenges/recursion)
+
+1. [Sorting](challenges/sorting/)
+
+1. [Stack](challenges/stack/)
+
+1. [String](challenges/string)
+
+1. [Tree/BST](challenges/tree/)
